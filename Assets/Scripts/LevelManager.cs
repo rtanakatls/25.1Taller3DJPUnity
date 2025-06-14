@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private List<Pattern> patterns;
+    [SerializeField] private LevelSettings settings;
     [SerializeField] private int seed;
     private Pattern currentPattern;
 
     private void Awake()
     {
         seed = Random.Range(0, 1000000);
-        currentPattern = patterns[seed % patterns.Count];
+        currentPattern = settings.PatternList[seed % settings.PatternList.Count];
 
         int index = 0;
         for(int i=0;i<20;i++)
